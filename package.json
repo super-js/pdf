@@ -1,6 +1,6 @@
 {
   "name": "@super-js/pdf",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "devDependencies": {
     "@types/jest": "29.1.2",
     "@types/node": "18.11.0",
