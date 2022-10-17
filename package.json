@@ -1,5 +1,6 @@
 {
   "name": "@super-js/pdf",
+  "version": "1.0.0",
   "packageManager": "yarn@3.2.4",
   "devDependencies": {
     "@types/jest": "29.1.2",
