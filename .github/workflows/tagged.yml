@@ -23,7 +23,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
             ${{ runner.os }}-
-      - run: yarn install --prefer-offline
+      - run: yarn install
       - run: yarn run build
       - run: yarn publish
         env:
