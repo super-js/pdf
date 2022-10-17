@@ -14,5 +14,10 @@
   "dependencies": {
     "canvas": "2.10.1",
     "pdfjs-dist": "2.16.105"
+  },
+  "scripts": {
+    "test": "yarn jest",
+    "build": "yarn run clean && tsc -p tsconfig.json",
+    "clean": "yarn rimraf lib"
   }
 }
