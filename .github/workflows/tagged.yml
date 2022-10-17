@@ -10,9 +10,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '15'
+          node-version: '18'
           registry-url: 'https://npm.pkg.github.com'
-          scope: '@super-js'
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -24,9 +23,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
             ${{ runner.os }}-
-      - run: yarn install
+      - run: yarn install --prefer-offline
       - run: yarn run build
-      - run: yarn npm publish
+      - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/create-release@v1
