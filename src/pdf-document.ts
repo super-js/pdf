@@ -10,8 +10,6 @@ export interface IPdfDocumentConstructorOptions extends ICreateDocumentOptions {
 export interface ICreateDocumentOptions {
     file_buffer: Buffer;
     do_not_load_pages?: boolean;
-    page_filter_regex?: RegExp;
-    scale?: number;
 }
 
 export interface IPdfDocumentInfo {
@@ -27,8 +25,6 @@ export class PdfDocument {
 
     public static STANDARD_FONT_FOLDER = path.join(`${require.resolve('pdfjs-dist')}`, '../../standard_fonts/')
 
-    private readonly _page_filter_regex?: RegExp;
-
     private readonly _pdf_provider: PdfProvider;
     private readonly _loading: Promise<void>;
 
@@ -41,7 +37,6 @@ export class PdfDocument {
     constructor(options: IPdfDocumentConstructorOptions) {
 
         this._pdf_provider = options.pdf_provider;
-        this._page_filter_regex = options.page_filter_regex;
 
         this._loading = (async () => {
             this._pdf_js_document = await this._pdf_provider.pdf_js.getDocument({
